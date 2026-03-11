@@ -1,4 +1,4 @@
-﻿using Hospital_Gestion_2;
+﻿using Hospital_Gestion_2_CD;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -47,6 +47,7 @@ public class Consulta
 
 public static class Validar
 {
+    
     public static void SoloTexto(string valor, string campo)
     {
         if (string.IsNullOrWhiteSpace(valor) || valor.Any(char.IsDigit))
@@ -64,7 +65,7 @@ public static class Validar
         if (valor <= 0)
             throw new ArgumentException($"{campo} debe ser un número positivo.");
     }
-}
+} 
 
 public class PrioridadDAL
 {

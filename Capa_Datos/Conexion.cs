@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 
-namespace Hospital_Gestion_2
+namespace Hospital_Gestion_2_CD
 {
 
     public class CD_Conexion
