@@ -147,5 +147,10 @@ namespace Hospital_Gestion_2_CN
         {
 
         }
+
+        private void btnIrTurnos_Click(object sender, EventArgs e)
+        {
+            new FrmTurno().Show();
+        }
     }
 }

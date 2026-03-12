@@ -34,9 +34,7 @@ namespace Hospital_Gestion_2_CN
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblTitulo
-            // 
+            
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
@@ -45,9 +43,7 @@ namespace Hospital_Gestion_2_CN
             this.lblTitulo.Size = new System.Drawing.Size(400, 30);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "  GESTIÓN DE PACIENTES";
-            // 
-            // lblDni
-            // 
+            
             this.lblDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblDni.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
@@ -57,9 +53,7 @@ namespace Hospital_Gestion_2_CN
             this.lblDni.TabIndex = 1;
             this.lblDni.Text = "DNI *";
             this.lblDni.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblNombre
-            // 
+            
             this.lblNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
@@ -69,9 +63,7 @@ namespace Hospital_Gestion_2_CN
             this.lblNombre.TabIndex = 3;
             this.lblNombre.Text = "Nombre *";
             this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblTelefono
-            // 
+           
             this.lblTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
@@ -81,9 +73,7 @@ namespace Hospital_Gestion_2_CN
             this.lblTelefono.TabIndex = 5;
             this.lblTelefono.Text = "Teléfono *";
             this.lblTelefono.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblEstado
-            // 
+         
             this.lblEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Italic);
             this.lblEstado.ForeColor = System.Drawing.Color.LightGreen;
@@ -92,9 +82,7 @@ namespace Hospital_Gestion_2_CN
             this.lblEstado.Size = new System.Drawing.Size(411, 39);
             this.lblEstado.TabIndex = 7;
             this.lblEstado.Click += new System.EventHandler(this.lblEstado_Click);
-            // 
-            // txtDni
-            // 
+            
             this.txtDni.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.txtDni.BorderRadius = 6;
             this.txtDni.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -111,9 +99,7 @@ namespace Hospital_Gestion_2_CN
             this.txtDni.Size = new System.Drawing.Size(180, 36);
             this.txtDni.TabIndex = 2;
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
-            // 
-            // txtNombre
-            // 
+           
             this.txtNombre.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.txtNombre.BorderRadius = 6;
             this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -128,9 +114,7 @@ namespace Hospital_Gestion_2_CN
             this.txtNombre.SelectedText = "";
             this.txtNombre.Size = new System.Drawing.Size(180, 36);
             this.txtNombre.TabIndex = 4;
-            // 
-            // txtTelefono
-            // 
+        
             this.txtTelefono.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.txtTelefono.BorderRadius = 6;
             this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -145,9 +129,7 @@ namespace Hospital_Gestion_2_CN
             this.txtTelefono.SelectedText = "";
             this.txtTelefono.Size = new System.Drawing.Size(180, 36);
             this.txtTelefono.TabIndex = 6;
-            // 
-            // btnGuardar
-            // 
+            
             this.btnGuardar.BorderRadius = 8;
             this.btnGuardar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -158,9 +140,7 @@ namespace Hospital_Gestion_2_CN
             this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnBuscar
-            // 
+        
             this.btnBuscar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnBuscar.BorderRadius = 8;
             this.btnBuscar.BorderThickness = 1;
@@ -173,9 +153,7 @@ namespace Hospital_Gestion_2_CN
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Text = "Buscar DNI";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnEliminar
-            // 
+          
             this.btnEliminar.BorderRadius = 8;
             this.btnEliminar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -186,9 +164,7 @@ namespace Hospital_Gestion_2_CN
             this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnLimpiar
-            // 
+         
             this.btnLimpiar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnLimpiar.BorderRadius = 8;
             this.btnLimpiar.BorderThickness = 1;
@@ -201,9 +177,7 @@ namespace Hospital_Gestion_2_CN
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // btnIrTurnos
-            // 
+         
             this.btnIrTurnos.BorderRadius = 8;
             this.btnIrTurnos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(160)))), ((int)(((byte)(100)))));
             this.btnIrTurnos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -213,9 +187,8 @@ namespace Hospital_Gestion_2_CN
             this.btnIrTurnos.Size = new System.Drawing.Size(130, 36);
             this.btnIrTurnos.TabIndex = 12;
             this.btnIrTurnos.Text = "Ir a Turnos →";
-            // 
-            // dgvPacientes
-            // 
+            this.btnIrTurnos.Click += new System.EventHandler(this.btnIrTurnos_Click);
+       
             this.dgvPacientes.AllowUserToAddRows = false;
             this.dgvPacientes.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -266,18 +239,14 @@ namespace Hospital_Gestion_2_CN
             this.dgvPacientes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvPacientes.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvPacientes.DoubleClick += new System.EventHandler(this.dgvPacientes_DoubleClick);
-            // 
-            // panelTop
-            // 
+      
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.panelTop.Controls.Add(this.lblTitulo);
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(620, 60);
             this.panelTop.TabIndex = 0;
-            // 
-            // FrmPaciente
-            // 
+           
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(980, 625);
             this.Controls.Add(this.panelTop);
