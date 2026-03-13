@@ -1,5 +1,6 @@
 ﻿using Capa_Presentacion;
 using Hospital_Gestion_2_CN;
+using Hospital_Manejo_Turnos.CapaPresentacion;
 using System;
 using System.Data;
 using System.Drawing;
@@ -150,6 +151,12 @@ namespace Hospital_Gestion_2_CN
         private void btnReporte_Click(object sender, EventArgs e)
         {
             new FrmReporte().Show();
+        }
+
+        private void btnConsulta_Click(object sender, EventArgs e)
+        {
+            new FrmConsulta().Show();
+            this.Hide();
         }
     }
 

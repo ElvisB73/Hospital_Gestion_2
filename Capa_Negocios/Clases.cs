@@ -217,6 +217,10 @@ namespace Hospital_Gestion_2_CN
         {
             return TurnoDAL.ObtenerReporte();
         }
+        public static DataTable ObtenerPorEstado(string estado)
+        {
+            return TurnoDAL.ObtenerPorEstado(estado);
+        }
     }
 
     public class ConsultaNegocio : EntidadBase
@@ -299,6 +303,46 @@ namespace Hospital_Gestion_2_CN
                     IdPrioridad = p.IdPrioridad,
                     Nombre = p.Nombre,
                     Nivel = p.Nivel
+                });
+            return lista;
+        }
+    }
+    public class DoctorNegocio : EntidadBase
+    {
+        public int IdDoctor { get; set; }
+        public string Titulo { get; set; }
+        public string Apellido { get; set; }
+        public string Nombre { get; set; }
+        public string Especialidad { get; set; }
+
+        public string NombreCompleto => $"{Titulo} {Apellido}";
+
+        public DoctorNegocio() { }
+
+        public override bool Validar()
+        {
+            if (string.IsNullOrWhiteSpace(Titulo)) return false;
+            if (string.IsNullOrWhiteSpace(Apellido)) return false;
+            if (string.IsNullOrWhiteSpace(Nombre)) return false;
+            return true;
+        }
+
+        public override string ObtenerDescripcion()
+        {
+            return $"{Titulo} {Apellido} — {Especialidad}";
+        }
+
+        public static List<DoctorNegocio> ObtenerTodos()
+        {
+            var lista = new List<DoctorNegocio>();
+            foreach (var d in DoctorDAL.ObtenerTodos())
+                lista.Add(new DoctorNegocio
+                {
+                    IdDoctor = d.IdDoctor,
+                    Titulo = d.Titulo,
+                    Apellido = d.Apellido,
+                    Nombre = d.Nombre,
+                    Especialidad = d.Especialidad
                 });
             return lista;
         }

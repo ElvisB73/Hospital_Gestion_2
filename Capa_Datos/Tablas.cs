@@ -44,6 +44,17 @@ public class Consulta
     public DateTime HoraInicio { get; set; }
     public DateTime? HoraFin { get; set; }
 }
+public class Doctor
+{
+    public int IdDoctor { get; set; }
+    public string Titulo { get; set; }
+    public string Apellido { get; set; }
+    public string Nombre { get; set; }
+    public string Especialidad { get; set; }
+
+    public string NombreCompleto => $"{Titulo} {Apellido}";
+}
+
 
 public static class Validar
 {
@@ -297,6 +308,30 @@ public class TurnoDAL
         }
         catch (Exception ex) { throw new Exception("Error al obtener reporte: " + ex.Message); }
     }
+
+    public static DataTable ObtenerPorEstado(string estado)
+    {
+        var dt = new DataTable();
+        try
+        {
+            var bd = new CD_Conexion();
+            var con = bd.AbrirConexion();
+            string sql = @"
+            SELECT t.nro_turno, p.nombre, pr.nombre AS prioridad,
+                   t.motivo, t.fecha_ingreso, t.fecha_atencion, t.estado
+            FROM Turno t
+            JOIN Paciente  p  ON t.id_paciente  = p.id_paciente
+            JOIN Prioridad pr ON t.id_prioridad = pr.id_prioridad
+            WHERE t.estado = @estado
+            ORDER BY t.fecha_atencion DESC";
+            var cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@estado", estado);
+            new SqlDataAdapter(cmd).Fill(dt);
+            bd.CerrarConexion(con);
+        }
+        catch (Exception ex) { throw new Exception("Error al obtener turnos: " + ex.Message); }
+        return dt;
+    }
 }
 
 public class ConsultaDAL
@@ -306,7 +341,7 @@ public class ConsultaDAL
         try
         {
             Validar.IdPositivo(c.IdTurno, "ID Turno");
-            Validar.SoloTexto(c.Medico, "Médico");
+            Validar.NoVacio(c.Medico, "Médico");    
             Validar.NoVacio(c.Diagnostico, "Diagnóstico");
 
             var bd = new CD_Conexion();
@@ -323,5 +358,56 @@ public class ConsultaDAL
         }
         catch (ArgumentException) { throw; }
         catch (Exception ex) { throw new Exception("Error al insertar consulta: " + ex.Message); }
+    }
+}
+public class DoctorDAL
+{
+    public static List<Doctor> ObtenerTodos()
+    {
+        var lista = new List<Doctor>();
+        try
+        {
+            var bd = new CD_Conexion();
+            var con = bd.AbrirConexion();
+            var dr = new SqlCommand(
+                "SELECT * FROM Doctor ORDER BY apellido", con).ExecuteReader();
+            while (dr.Read())
+                lista.Add(new Doctor
+                {
+                    IdDoctor = Convert.ToInt32(dr["id_doctor"]),
+                    Titulo = dr["titulo"].ToString(),
+                    Apellido = dr["apellido"].ToString(),
+                    Nombre = dr["nombre"].ToString(),
+                    Especialidad = dr["especialidad"].ToString()
+                });
+            dr.Close();
+            bd.CerrarConexion(con);
+        }
+        catch (Exception ex) { throw new Exception("Error al obtener doctores: " + ex.Message); }
+        return lista;
+    }
+
+    public static void Insertar(Doctor d)
+    {
+        try
+        {
+            Validar.NoVacio(d.Titulo, "Título");
+            Validar.SoloTexto(d.Apellido, "Apellido");
+            Validar.SoloTexto(d.Nombre, "Nombre");
+
+            var bd = new CD_Conexion();
+            var con = bd.AbrirConexion();
+            var cmd = new SqlCommand(@"
+                INSERT INTO Doctor (titulo, apellido, nombre, especialidad)
+                VALUES (@titulo, @apellido, @nombre, @especialidad)", con);
+            cmd.Parameters.AddWithValue("@titulo", d.Titulo);
+            cmd.Parameters.AddWithValue("@apellido", d.Apellido);
+            cmd.Parameters.AddWithValue("@nombre", d.Nombre);
+            cmd.Parameters.AddWithValue("@especialidad", (object)d.Especialidad ?? DBNull.Value);
+            cmd.ExecuteNonQuery();
+            bd.CerrarConexion(con);
+        }
+        catch (ArgumentException) { throw; }
+        catch (Exception ex) { throw new Exception("Error al insertar doctor: " + ex.Message); }
     }
 }
