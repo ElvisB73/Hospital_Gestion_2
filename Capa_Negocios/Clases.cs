@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Hospital_Gestion_2_CD;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using Hospital_Gestion_2_CD;
+using System.Data.SqlClient;
 
 namespace Hospital_Gestion_2_CN
 {
@@ -48,7 +49,7 @@ namespace Hospital_Gestion_2_CN
             if (string.IsNullOrWhiteSpace(Dni)) return false;
             if (string.IsNullOrWhiteSpace(Nombre)) return false;
             if (string.IsNullOrWhiteSpace(Telefono)) return false;
-            if (Dni.Length < 3 || Dni.Length > 5) return false;
+            if (Dni.Length < 3 || Dni.Length > 15) return false;
             return true;
         }
 
@@ -157,11 +158,6 @@ namespace Hospital_Gestion_2_CN
             return $"Turno {NroTurno} | {PacienteNombre} | {PrioridadNombre} | {Estado}";
         }
 
-        public static string GenerarNroTurno()
-        {
-            return $"T-{DateTime.Now:HHmmss}";
-        }
-
         public bool Registrar()
         {
             if (!Validar()) return false;
@@ -174,6 +170,25 @@ namespace Hospital_Gestion_2_CN
                 Motivo = this.Motivo
             });
             return true;
+        }
+
+        public static string GenerarNroTurno()
+        {
+            try
+            {
+                var bd = new CD_Conexion();
+                var con = bd.AbrirConexion();
+                SqlCommand cmd = new SqlCommand(@"
+                    SELECT COUNT(*) FROM Turno
+                    WHERE CAST(fecha_ingreso AS DATE) = CAST(GETDATE() AS DATE)", con);
+                int cantidad = Convert.ToInt32(cmd.ExecuteScalar());
+                bd.CerrarConexion(con);
+                return $"T{cantidad + 1:D3}";
+            }
+            catch
+            {
+                return $"T{DateTime.Now:HHmmss}";
+            }
         }
 
         public static List<TurnoNegocio> ObtenerCola()

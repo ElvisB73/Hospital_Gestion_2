@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Hospital_Gestion_2_CN;
 
+
 namespace Hospital_Gestion_2_CN
 {
     public partial class FrmPaciente : Form
@@ -51,29 +52,35 @@ namespace Hospital_Gestion_2_CN
                 e.Handled = true;
         }
 
-     
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            var paciente = new PacienteNegocio(
-                txtDni.Text.Trim(),
-                txtNombre.Text.Trim(),
-                txtTelefono.Text.Trim()
-            );
+            try
+            {
+                var paciente = new PacienteNegocio(
+                    txtDni.Text.Trim(),
+                    txtNombre.Text.Trim(),
+                    txtTelefono.Text.Trim()
+                );
 
-            if (!paciente.Validar())
+                if (paciente.Registrar())
+                {
+                    lblEstado.ForeColor = Color.LightGreen;
+                    lblEstado.Text = "✔ Paciente registrado correctamente.";
+                    Limpiar();
+                    CargarPacientes();
+                }
+            }
+            catch (ArgumentException ex)
             {
                 lblEstado.ForeColor = Color.Tomato;
-                lblEstado.Text = "⚠  Completá todos los campos. DNI entre 3 y 15 dígitos.";
-                return;
+                lblEstado.Text = "⚠ " + ex.Message;
             }
-
-            if (paciente.Registrar())
+            catch (Exception ex)
             {
-                lblEstado.ForeColor = Color.LightGreen;
-                lblEstado.Text = $"✔  {paciente.ObtenerResumen()} registrado correctamente.";
-                Limpiar();
-                CargarPacientes();
+                lblEstado.ForeColor = Color.Tomato;
+                lblEstado.Text = "✖ " + ex.Message;
             }
         }
 
@@ -82,7 +89,7 @@ namespace Hospital_Gestion_2_CN
             if (string.IsNullOrWhiteSpace(txtDni.Text))
             {
                 lblEstado.ForeColor = Color.Tomato;
-                lblEstado.Text = "⚠  Ingresá un DNI para buscar.";
+                lblEstado.Text = "  Ingresá un DNI para buscar.";
                 return;
             }
 
@@ -90,14 +97,14 @@ namespace Hospital_Gestion_2_CN
             if (p == null)
             {
                 lblEstado.ForeColor = Color.Tomato;
-                lblEstado.Text = "✖  Paciente no encontrado.";
+                lblEstado.Text = "  Paciente no encontrado.";
                 return;
             }
 
             txtNombre.Text = p.Nombre;
             txtTelefono.Text = p.Telefono;
             lblEstado.ForeColor = Color.LightGreen;
-            lblEstado.Text = $"✔  {p.ObtenerDescripcion()}";
+            lblEstado.Text = $"  {p.ObtenerDescripcion()}";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -105,7 +112,7 @@ namespace Hospital_Gestion_2_CN
             if (string.IsNullOrWhiteSpace(txtDni.Text))
             {
                 lblEstado.ForeColor = Color.Tomato;
-                lblEstado.Text = "⚠  Buscá el paciente antes de eliminar.";
+                lblEstado.Text = "  Buscá el paciente antes de eliminar.";
                 return;
             }
 
@@ -151,6 +158,11 @@ namespace Hospital_Gestion_2_CN
         private void btnIrTurnos_Click(object sender, EventArgs e)
         {
             new FrmTurno().Show();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

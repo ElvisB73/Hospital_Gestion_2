@@ -47,11 +47,16 @@ public class Consulta
 
 public static class Validar
 {
-    
     public static void SoloTexto(string valor, string campo)
     {
-        if (string.IsNullOrWhiteSpace(valor) || valor.Any(char.IsDigit))
-            throw new ArgumentException($"{campo} solo debe contener letras y no puede estar vacío.");
+        if (string.IsNullOrWhiteSpace(valor))
+            throw new ArgumentException($"{campo} no puede estar vacío.");
+
+        foreach (char c in valor)
+        {
+            if (!char.IsLetter(c) && c != ' ')
+                throw new ArgumentException($"{campo} solo debe contener letras.");
+        }
     }
 
     public static void SoloNumeros(string valor, string campo)
@@ -65,7 +70,13 @@ public static class Validar
         if (valor <= 0)
             throw new ArgumentException($"{campo} debe ser un número positivo.");
     }
-} 
+
+    public static void NoVacio(string valor, string campo)
+    {
+        if (string.IsNullOrWhiteSpace(valor))
+            throw new ArgumentException($"{campo} no puede estar vacío.");
+    }
+}
 
 public class PrioridadDAL
 {
@@ -194,12 +205,13 @@ public class TurnoDAL
         {
             Validar.IdPositivo(t.IdPaciente, "ID Paciente");
             Validar.IdPositivo(t.IdPrioridad, "ID Prioridad");
-            Validar.SoloNumeros(t.NroTurno, "Nro Turno");
-            Validar.SoloTexto(t.Motivo, "Motivo");
+            Validar.NoVacio(t.Motivo, "Motivo");
+            // ← NroTurno NO se valida, lo genera el sistema solo
 
             var bd = new CD_Conexion();
-            SqlConnection con = bd.AbrirConexion();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Turno (id_paciente, id_prioridad, nro_turno, motivo) VALUES (@idPac, @idPrio, @nro, @motivo)", con);
+            var con = bd.AbrirConexion();
+            var cmd = new SqlCommand(
+                "INSERT INTO Turno (id_paciente, id_prioridad, nro_turno, motivo) VALUES (@idPac, @idPrio, @nro, @motivo)", con);
             cmd.Parameters.AddWithValue("@idPac", t.IdPaciente);
             cmd.Parameters.AddWithValue("@idPrio", t.IdPrioridad);
             cmd.Parameters.AddWithValue("@nro", t.NroTurno);
@@ -295,8 +307,7 @@ public class ConsultaDAL
         {
             Validar.IdPositivo(c.IdTurno, "ID Turno");
             Validar.SoloTexto(c.Medico, "Médico");
-            if (string.IsNullOrWhiteSpace(c.Diagnostico))
-                throw new ArgumentException("El diagnóstico no puede estar vacío.");
+            Validar.NoVacio(c.Diagnostico, "Diagnóstico");
 
             var bd = new CD_Conexion();
             SqlConnection con = bd.AbrirConexion();
