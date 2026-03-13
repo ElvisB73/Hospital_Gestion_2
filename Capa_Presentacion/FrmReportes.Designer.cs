@@ -27,9 +27,7 @@ namespace Hospital_Gestion_2_CN
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).BeginInit();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblTitulo
-            // 
+            
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
@@ -38,9 +36,7 @@ namespace Hospital_Gestion_2_CN
             this.lblTitulo.Size = new System.Drawing.Size(500, 30);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "  REPORTE — TIEMPOS DE ESPERA";
-            // 
-            // lblFecha
-            // 
+            
             this.lblFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
@@ -48,9 +44,7 @@ namespace Hospital_Gestion_2_CN
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(400, 18);
             this.lblFecha.TabIndex = 1;
-            // 
-            // lblResumen
-            // 
+            
             this.lblResumen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblResumen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblResumen.ForeColor = System.Drawing.Color.LightGreen;
@@ -59,9 +53,7 @@ namespace Hospital_Gestion_2_CN
             this.lblResumen.Size = new System.Drawing.Size(556, 22);
             this.lblResumen.TabIndex = 3;
             this.lblResumen.Click += new System.EventHandler(this.lblResumen_Click);
-            // 
-            // dgvReporte
-            // 
+           
             this.dgvReporte.AllowUserToAddRows = false;
             this.dgvReporte.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -111,9 +103,7 @@ namespace Hospital_Gestion_2_CN
             this.dgvReporte.ThemeStyle.RowsStyle.Height = 22;
             this.dgvReporte.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvReporte.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // btnRefrescar
-            // 
+            
             this.btnRefrescar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnRefrescar.BorderRadius = 8;
             this.btnRefrescar.BorderThickness = 1;
@@ -126,9 +116,7 @@ namespace Hospital_Gestion_2_CN
             this.btnRefrescar.TabIndex = 4;
             this.btnRefrescar.Text = "Actualizar";
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
-            // 
-            // btnTurnos
-            // 
+           
             this.btnTurnos.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnTurnos.BorderRadius = 8;
             this.btnTurnos.BorderThickness = 1;
@@ -141,9 +129,7 @@ namespace Hospital_Gestion_2_CN
             this.btnTurnos.TabIndex = 5;
             this.btnTurnos.Text = "← Ir a Turnos";
             this.btnTurnos.Click += new System.EventHandler(this.btnTurnos_Click);
-            // 
-            // btnCerrar
-            // 
+            
             this.btnCerrar.BorderRadius = 8;
             this.btnCerrar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -154,18 +140,14 @@ namespace Hospital_Gestion_2_CN
             this.btnCerrar.TabIndex = 6;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // panelTop
-            // 
+           
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.panelTop.Controls.Add(this.lblTitulo);
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(600, 60);
             this.panelTop.TabIndex = 0;
-            // 
-            // FrmReporte
-            // 
+            
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(596, 432);
             this.Controls.Add(this.panelTop);
