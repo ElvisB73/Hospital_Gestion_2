@@ -32,7 +32,7 @@ namespace Capa_Presentacion
 
         private void CargarDoctores()
         {
-            cmbDoctor.Items.Clear();
+            cmbDoctor.Items.Clear(); 
             foreach (var d in DoctorNegocio.ObtenerTodos())
                 cmbDoctor.Items.Add(new ItemCombo(d.IdDoctor, d.NombreCompleto));
             cmbDoctor.SelectedIndex = -1;
@@ -112,6 +112,12 @@ namespace Capa_Presentacion
         private void dtpHoraFin_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnvolver_Click(object sender, EventArgs e)
+        {
+            new FrmPrincipal().Show();
+            this.Close();
         }
     }
 }

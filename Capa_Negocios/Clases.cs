@@ -207,6 +207,10 @@ namespace Hospital_Gestion_2_CN
                 });
             return lista;
         }
+        public static DataTable ObtenerHistorial()
+        {
+            return TurnoDAL.ObtenerHistorial();
+        }
 
         public static void CambiarEstado(int idTurno, string estado)
         {

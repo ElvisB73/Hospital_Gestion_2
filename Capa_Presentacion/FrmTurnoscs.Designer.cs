@@ -35,6 +35,7 @@ namespace Hospital_Gestion_2_CN
             this.dgvCola = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
             this.btnConsulta = new Guna.UI2.WinForms.Guna2Button();
+            this.btnvolver = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCola)).BeginInit();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
@@ -189,7 +190,7 @@ namespace Hospital_Gestion_2_CN
             this.btnAtender.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(140)))), ((int)(((byte)(80)))));
             this.btnAtender.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAtender.ForeColor = System.Drawing.Color.White;
-            this.btnAtender.Location = new System.Drawing.Point(184, 441);
+            this.btnAtender.Location = new System.Drawing.Point(15, 498);
             this.btnAtender.Name = "btnAtender";
             this.btnAtender.Size = new System.Drawing.Size(130, 36);
             this.btnAtender.TabIndex = 10;
@@ -202,7 +203,7 @@ namespace Hospital_Gestion_2_CN
             this.btnCancelar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(337, 441);
+            this.btnCancelar.Location = new System.Drawing.Point(202, 441);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(130, 36);
             this.btnCancelar.TabIndex = 11;
@@ -217,7 +218,7 @@ namespace Hospital_Gestion_2_CN
             this.btnRefrescar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnRefrescar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnRefrescar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.btnRefrescar.Location = new System.Drawing.Point(502, 441);
+            this.btnRefrescar.Location = new System.Drawing.Point(202, 498);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(130, 36);
             this.btnRefrescar.TabIndex = 12;
@@ -232,7 +233,7 @@ namespace Hospital_Gestion_2_CN
             this.btnReporte.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnReporte.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnReporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.btnReporte.Location = new System.Drawing.Point(658, 441);
+            this.btnReporte.Location = new System.Drawing.Point(403, 441);
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(130, 36);
             this.btnReporte.TabIndex = 13;
@@ -247,7 +248,7 @@ namespace Hospital_Gestion_2_CN
             this.btnPacientes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnPacientes.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnPacientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.btnPacientes.Location = new System.Drawing.Point(810, 441);
+            this.btnPacientes.Location = new System.Drawing.Point(642, 441);
             this.btnPacientes.Name = "btnPacientes";
             this.btnPacientes.Size = new System.Drawing.Size(130, 36);
             this.btnPacientes.TabIndex = 14;
@@ -317,23 +318,42 @@ namespace Hospital_Gestion_2_CN
             // 
             // btnConsulta
             // 
+            this.btnConsulta.BorderRadius = 8;
             this.btnConsulta.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnConsulta.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnConsulta.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnConsulta.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnConsulta.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnConsulta.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnConsulta.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta.Location = new System.Drawing.Point(981, 441);
+            this.btnConsulta.Location = new System.Drawing.Point(403, 498);
             this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(172, 36);
+            this.btnConsulta.Size = new System.Drawing.Size(130, 36);
             this.btnConsulta.TabIndex = 17;
             this.btnConsulta.Text = "Consulta";
             this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
+            // 
+            // btnvolver
+            // 
+            this.btnvolver.BorderRadius = 8;
+            this.btnvolver.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnvolver.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnvolver.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnvolver.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnvolver.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnvolver.ForeColor = System.Drawing.Color.White;
+            this.btnvolver.Location = new System.Drawing.Point(642, 489);
+            this.btnvolver.Name = "btnvolver";
+            this.btnvolver.Size = new System.Drawing.Size(130, 45);
+            this.btnvolver.TabIndex = 18;
+            this.btnvolver.Text = "Volver";
+            this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click_1);
             // 
             // FrmTurno
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(1189, 667);
+            this.Controls.Add(this.btnvolver);
             this.Controls.Add(this.btnConsulta);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.lblDni);
@@ -384,5 +404,6 @@ namespace Hospital_Gestion_2_CN
         private Guna2DataGridView dgvCola;
         private Guna2Panel panelTop;
         private Guna2Button btnConsulta;
+        private Guna2Button btnvolver;
     }
 }

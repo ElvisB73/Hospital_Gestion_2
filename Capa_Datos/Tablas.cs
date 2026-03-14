@@ -265,6 +265,8 @@ public class TurnoDAL
         }
         catch (Exception ex) { throw new Exception("Error al obtener cola: " + ex.Message); }
         return lista;
+
+
     }
 
     public static void ActualizarEstado(int idTurno, string estado)
@@ -307,6 +309,27 @@ public class TurnoDAL
             return dt;
         }
         catch (Exception ex) { throw new Exception("Error al obtener reporte: " + ex.Message); }
+    }
+    public static DataTable ObtenerHistorial()
+    {
+        var dt = new DataTable();
+        try
+        {
+            var bd = new CD_Conexion();
+            var con = bd.AbrirConexion();
+            string sql = @"
+            SELECT t.nro_turno, p.nombre, pr.nombre AS prioridad,
+                   t.motivo, t.fecha_ingreso, t.fecha_atencion, t.estado
+            FROM Turno t
+            JOIN Paciente  p  ON t.id_paciente  = p.id_paciente
+            JOIN Prioridad pr ON t.id_prioridad = pr.id_prioridad
+            WHERE t.estado IN ('Atendido','Cancelado')
+            ORDER BY t.fecha_ingreso DESC";
+            new SqlDataAdapter(sql, con).Fill(dt);
+            bd.CerrarConexion(con);
+        }
+        catch (Exception ex) { throw new Exception("Error al obtener historial: " + ex.Message); }
+        return dt;
     }
 
     public static DataTable ObtenerPorEstado(string estado)

@@ -158,6 +158,18 @@ namespace Hospital_Gestion_2_CN
             new FrmConsulta().Show();
             this.Hide();
         }
+
+        private void btnvolver_Click(object sender, EventArgs e)
+        {
+            new FrmPrincipal().Show();
+            this.Close();
+        }
+
+        private void btnvolver_Click_1(object sender, EventArgs e)
+        {
+            new FrmPrincipal().Show();
+            this.Close();
+        }
     }
 
     public class ItemCombo

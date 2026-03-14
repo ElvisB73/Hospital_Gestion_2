@@ -1,4 +1,5 @@
-﻿using Hospital_Gestion_2_CN;
+﻿using Capa_Presentacion;
+using Hospital_Gestion_2_CN;
 using System;
 using System.Data;
 using System.Drawing;
@@ -22,6 +23,7 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
         {
             lblFecha.Text = $"Generado: {DateTime.Now:dd/MM/yyyy  HH:mm:ss}";
 
+            // ── Grilla resumen por prioridad ──
             DataTable dt = TurnoNegocio.ObtenerReporte();
 
             if (dt.Columns.Contains("nivel")) dt.Columns["nivel"].ColumnName = "Nivel";
@@ -48,31 +50,52 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
                 total += Convert.ToInt32(row["Atendidos"]);
 
             lblResumen.Text = dt.Rows.Count > 0
-                ? $"Total pacientes atendidos hoy: {total}"
+                ? $"Total pacientes atendidos: {total}"
                 : "Sin datos atendidos todavía.";
 
-            CargarAtendidos();
+            // ── Grilla historial (atendidos + cancelados) ──
+            CargarHistorial();
         }
 
-        private void CargarAtendidos()
+        private void CargarHistorial()
         {
             try
             {
-                DataTable dt = TurnoNegocio.ObtenerPorEstado("Atendido");
+                DataTable dt = TurnoNegocio.ObtenerHistorial();
 
                 if (dt.Columns.Contains("nro_turno")) dt.Columns["nro_turno"].ColumnName = "Turno";
                 if (dt.Columns.Contains("nombre")) dt.Columns["nombre"].ColumnName = "Paciente";
                 if (dt.Columns.Contains("prioridad")) dt.Columns["prioridad"].ColumnName = "Prioridad";
                 if (dt.Columns.Contains("motivo")) dt.Columns["motivo"].ColumnName = "Motivo";
                 if (dt.Columns.Contains("fecha_ingreso")) dt.Columns["fecha_ingreso"].ColumnName = "Ingreso";
-                if (dt.Columns.Contains("fecha_atencion")) dt.Columns["fecha_atencion"].ColumnName = "Atendido";
+                if (dt.Columns.Contains("fecha_atencion")) dt.Columns["fecha_atencion"].ColumnName = "Fin";
+                if (dt.Columns.Contains("estado")) dt.Columns["estado"].ColumnName = "Estado";
 
-                dgvAtendidos.DataSource = dt;
-                lblAtendidos.Text = $"Historial de atendidos: {dt.Rows.Count} registro(s)";
+                dgvHistorial.DataSource = dt;
+
+                // Colorear filas por estado
+                foreach (DataGridViewRow row in dgvHistorial.Rows)
+                {
+                    if (row.Cells["Estado"].Value == null) continue;
+                    string estado = row.Cells["Estado"].Value.ToString();
+                    row.DefaultCellStyle.BackColor = estado == "Atendido"
+                        ? Color.FromArgb(25, 70, 40)
+                        : Color.FromArgb(90, 25, 25);
+                }
+
+                int atendidos = 0;
+                int cancelados = 0;
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (row["Estado"].ToString() == "Atendido") atendidos++;
+                    else cancelados++;
+                }
+
+                lblHistorial.Text = $"Historial — Atendidos: {atendidos}  |  Cancelados: {cancelados}";
             }
             catch (Exception ex)
             {
-                lblAtendidos.Text = "Error al cargar atendidos: " + ex.Message;
+                lblHistorial.Text = "Error al cargar historial: " + ex.Message;
             }
         }
 
@@ -82,6 +105,22 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
         {
             new FrmTurno().Show();
             this.Hide();
+        }
+
+        private void btnvolver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvHistorial_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnvolver_Click_1(object sender, EventArgs e)
+        {
+            new FrmPrincipal().Show();
+            this.Close();
         }
     }
 }

@@ -28,6 +28,7 @@ namespace Capa_Presentacion
             this.btnGuardar = new Guna.UI2.WinForms.Guna2Button();
             this.btnLimpiar = new Guna.UI2.WinForms.Guna2Button();
             this.btnTurnos = new Guna.UI2.WinForms.Guna2Button();
+            this.btnvolver = new Guna.UI2.WinForms.Guna2Button();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -201,7 +202,7 @@ namespace Capa_Presentacion
             this.btnLimpiar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.btnLimpiar.Location = new System.Drawing.Point(516, 337);
+            this.btnLimpiar.Location = new System.Drawing.Point(412, 337);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(120, 36);
             this.btnLimpiar.TabIndex = 12;
@@ -214,17 +215,33 @@ namespace Capa_Presentacion
             this.btnTurnos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(140)))), ((int)(((byte)(80)))));
             this.btnTurnos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnTurnos.ForeColor = System.Drawing.Color.White;
-            this.btnTurnos.Location = new System.Drawing.Point(763, 337);
+            this.btnTurnos.Location = new System.Drawing.Point(613, 337);
             this.btnTurnos.Name = "btnTurnos";
             this.btnTurnos.Size = new System.Drawing.Size(130, 36);
             this.btnTurnos.TabIndex = 13;
-            this.btnTurnos.Text = "← Ir a Turnos";
+            this.btnTurnos.Text = " Ir a Turnos";
             this.btnTurnos.Click += new System.EventHandler(this.btnTurnos_Click);
+            // 
+            // btnvolver
+            // 
+            this.btnvolver.BorderRadius = 8;
+            this.btnvolver.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnvolver.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnvolver.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnvolver.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnvolver.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnvolver.ForeColor = System.Drawing.Color.White;
+            this.btnvolver.Location = new System.Drawing.Point(816, 337);
+            this.btnvolver.Name = "btnvolver";
+            this.btnvolver.Size = new System.Drawing.Size(127, 36);
+            this.btnvolver.TabIndex = 15;
+            this.btnvolver.Text = "Volver";
             // 
             // FrmConsulta
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(1117, 552);
+            this.Controls.Add(this.btnvolver);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.lblTurno);
             this.Controls.Add(this.cmbTurno);
@@ -266,5 +283,6 @@ namespace Capa_Presentacion
         private Guna2Button btnLimpiar;
         private Guna2Button btnTurnos;
         private Guna2Panel panelTop;
+        private Guna2Button btnvolver;
     }
 }

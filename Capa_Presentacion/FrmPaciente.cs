@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Capa_Presentacion;
+using Hospital_Gestion_2_CN;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using Hospital_Gestion_2_CN;
 
 
 namespace Hospital_Gestion_2_CN
@@ -163,6 +164,12 @@ namespace Hospital_Gestion_2_CN
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnvolver_Click(object sender, EventArgs e)
+        {
+            new FrmPrincipal().Show();
+            this.Close();
         }
     }
 }

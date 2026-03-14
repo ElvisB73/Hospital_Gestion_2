@@ -22,15 +22,16 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblResumen = new System.Windows.Forms.Label();
-            this.lblAtendidos = new System.Windows.Forms.Label();
+            this.lblHistorial = new System.Windows.Forms.Label();
             this.dgvReporte = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dgvAtendidos = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvHistorial = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnRefrescar = new Guna.UI2.WinForms.Guna2Button();
             this.btnTurnos = new Guna.UI2.WinForms.Guna2Button();
             this.btnCerrar = new Guna.UI2.WinForms.Guna2Button();
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnvolver = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAtendidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,21 +61,21 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             this.lblResumen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblResumen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblResumen.ForeColor = System.Drawing.Color.LightGreen;
-            this.lblResumen.Location = new System.Drawing.Point(20, 346);
+            this.lblResumen.Location = new System.Drawing.Point(20, 306);
             this.lblResumen.Name = "lblResumen";
             this.lblResumen.Size = new System.Drawing.Size(556, 22);
             this.lblResumen.TabIndex = 3;
             // 
-            // lblAtendidos
+            // lblHistorial
             // 
-            this.lblAtendidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.lblAtendidos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblAtendidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.lblAtendidos.Location = new System.Drawing.Point(20, 378);
-            this.lblAtendidos.Name = "lblAtendidos";
-            this.lblAtendidos.Size = new System.Drawing.Size(556, 20);
-            this.lblAtendidos.TabIndex = 4;
-            this.lblAtendidos.Text = "Historial de atendidos";
+            this.lblHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.lblHistorial.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblHistorial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.lblHistorial.Location = new System.Drawing.Point(20, 338);
+            this.lblHistorial.Name = "lblHistorial";
+            this.lblHistorial.Size = new System.Drawing.Size(556, 20);
+            this.lblHistorial.TabIndex = 4;
+            this.lblHistorial.Text = "Historial de turnos";
             // 
             // dgvReporte
             // 
@@ -104,7 +105,7 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             this.dgvReporte.Name = "dgvReporte";
             this.dgvReporte.ReadOnly = true;
             this.dgvReporte.RowHeadersVisible = false;
-            this.dgvReporte.Size = new System.Drawing.Size(556, 240);
+            this.dgvReporte.Size = new System.Drawing.Size(556, 200);
             this.dgvReporte.TabIndex = 2;
             this.dgvReporte.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvReporte.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -128,13 +129,13 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             this.dgvReporte.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvReporte.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // dgvAtendidos
+            // dgvHistorial
             // 
-            this.dgvAtendidos.AllowUserToAddRows = false;
-            this.dgvAtendidos.AllowUserToDeleteRows = false;
+            this.dgvHistorial.AllowUserToAddRows = false;
+            this.dgvHistorial.AllowUserToDeleteRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvAtendidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvAtendidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.dgvHistorial.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvHistorial.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -142,7 +143,7 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAtendidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvHistorial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -150,35 +151,36 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAtendidos.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvAtendidos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.dgvAtendidos.Location = new System.Drawing.Point(20, 402);
-            this.dgvAtendidos.Name = "dgvAtendidos";
-            this.dgvAtendidos.ReadOnly = true;
-            this.dgvAtendidos.RowHeadersVisible = false;
-            this.dgvAtendidos.Size = new System.Drawing.Size(556, 205);
-            this.dgvAtendidos.TabIndex = 5;
-            this.dgvAtendidos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvAtendidos.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvAtendidos.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvAtendidos.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvAtendidos.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvAtendidos.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.dgvAtendidos.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.dgvAtendidos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvAtendidos.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvAtendidos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dgvAtendidos.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvAtendidos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvAtendidos.ThemeStyle.HeaderStyle.Height = 23;
-            this.dgvAtendidos.ThemeStyle.ReadOnly = true;
-            this.dgvAtendidos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvAtendidos.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvAtendidos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dgvAtendidos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvAtendidos.ThemeStyle.RowsStyle.Height = 22;
-            this.dgvAtendidos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvAtendidos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvHistorial.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvHistorial.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.dgvHistorial.Location = new System.Drawing.Point(20, 362);
+            this.dgvHistorial.Name = "dgvHistorial";
+            this.dgvHistorial.ReadOnly = true;
+            this.dgvHistorial.RowHeadersVisible = false;
+            this.dgvHistorial.Size = new System.Drawing.Size(556, 220);
+            this.dgvHistorial.TabIndex = 5;
+            this.dgvHistorial.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvHistorial.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvHistorial.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvHistorial.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvHistorial.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvHistorial.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.dgvHistorial.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.dgvHistorial.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvHistorial.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvHistorial.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dgvHistorial.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvHistorial.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvHistorial.ThemeStyle.HeaderStyle.Height = 23;
+            this.dgvHistorial.ThemeStyle.ReadOnly = true;
+            this.dgvHistorial.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvHistorial.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvHistorial.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dgvHistorial.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvHistorial.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvHistorial.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvHistorial.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvHistorial.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorial_CellContentClick);
             // 
             // btnRefrescar
             // 
@@ -188,7 +190,7 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             this.btnRefrescar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnRefrescar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnRefrescar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.btnRefrescar.Location = new System.Drawing.Point(674, 96);
+            this.btnRefrescar.Location = new System.Drawing.Point(612, 118);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(130, 36);
             this.btnRefrescar.TabIndex = 6;
@@ -197,19 +199,16 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             // 
             // btnTurnos
             // 
-            this.btnTurnos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnTurnos.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnTurnos.BorderRadius = 8;
             this.btnTurnos.BorderThickness = 1;
             this.btnTurnos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnTurnos.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnTurnos.ForeColor = System.Drawing.Color.White;
-            this.btnTurnos.Location = new System.Drawing.Point(674, 190);
+            this.btnTurnos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.btnTurnos.Location = new System.Drawing.Point(612, 191);
             this.btnTurnos.Name = "btnTurnos";
-            this.btnTurnos.PressedColor = System.Drawing.Color.White;
             this.btnTurnos.Size = new System.Drawing.Size(130, 36);
             this.btnTurnos.TabIndex = 7;
-            this.btnTurnos.Text = "← Ir a Turnos";
+            this.btnTurnos.Text = "Ir a Turnos";
             this.btnTurnos.Click += new System.EventHandler(this.btnTurnos_Click);
             // 
             // btnCerrar
@@ -218,7 +217,7 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             this.btnCerrar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(674, 300);
+            this.btnCerrar.Location = new System.Drawing.Point(612, 372);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(130, 36);
             this.btnCerrar.TabIndex = 8;
@@ -234,16 +233,33 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             this.panelTop.Size = new System.Drawing.Size(600, 60);
             this.panelTop.TabIndex = 0;
             // 
+            // btnvolver
+            // 
+            this.btnvolver.BorderRadius = 8;
+            this.btnvolver.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnvolver.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnvolver.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnvolver.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnvolver.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnvolver.ForeColor = System.Drawing.Color.White;
+            this.btnvolver.Location = new System.Drawing.Point(612, 288);
+            this.btnvolver.Name = "btnvolver";
+            this.btnvolver.Size = new System.Drawing.Size(130, 40);
+            this.btnvolver.TabIndex = 15;
+            this.btnvolver.Text = "Volver";
+            this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click_1);
+            // 
             // FrmReporte
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(1009, 663);
+            this.ClientSize = new System.Drawing.Size(779, 667);
+            this.Controls.Add(this.btnvolver);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dgvReporte);
             this.Controls.Add(this.lblResumen);
-            this.Controls.Add(this.lblAtendidos);
-            this.Controls.Add(this.dgvAtendidos);
+            this.Controls.Add(this.lblHistorial);
+            this.Controls.Add(this.dgvHistorial);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.btnTurnos);
             this.Controls.Add(this.btnCerrar);
@@ -255,7 +271,7 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
             this.Text = "Reporte — Hospital Manejo Turnos";
             this.Load += new System.EventHandler(this.FrmReporte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAtendidos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -264,12 +280,13 @@ namespace Hospital_Manejo_Turnos.CapaPresentacion
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblResumen;
-        private System.Windows.Forms.Label lblAtendidos;
+        private System.Windows.Forms.Label lblHistorial;
         private Guna2DataGridView dgvReporte;
-        private Guna2DataGridView dgvAtendidos;
+        private Guna2DataGridView dgvHistorial;
         private Guna2Button btnRefrescar;
         private Guna2Button btnTurnos;
         private Guna2Button btnCerrar;
         private Guna2Panel panelTop;
+        private Guna2Button btnvolver;
     }
 }
