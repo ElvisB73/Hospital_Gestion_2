@@ -67,10 +67,11 @@ namespace Hospital_Gestion_2_CN
 
                 if (paciente.Registrar())
                 {
+                    CargarPacientes();
+                    Limpiar();
                     lblEstado.ForeColor = Color.LightGreen;
                     lblEstado.Text = "✔ Paciente registrado correctamente.";
-                    Limpiar();
-                    CargarPacientes();
+                   
                 }
             }
             catch (ArgumentException ex)
